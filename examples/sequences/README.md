@@ -35,3 +35,17 @@ ProjectEuler: https://projecteuler.net/problem=341
 Первые несколько элементов последовательности Голомба:
 
 ```1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, ...```
+
+<!-- ## Последовательность "Посмотри и скажи"
+
+Wiki: https://en.wikipedia.org/wiki/Look-and-say_sequence
+OEIS: https://oeis.org/A005150
+ProjectEuler: http://euler.jakumo.org/problems.html
+
+Первые несколько элементов последовательности "Посмотри и скажи":
+
+```1, 11, 21, 1211, 111221, 312211, 13112221, 1113213211, ...``` -->
+
+## Функция Капрекара
+
+Wiki: https://en.wikipedia.org/wiki/Kaprekar%27s_routine

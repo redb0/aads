@@ -8,6 +8,8 @@
     - [Числа Фибоначчи](examples/sequences/README.md)
     - [Числа Люка](examples/sequences/README.md)
     - [Последовательность Голомба (Сильвермана)](examples/sequences/README.md)
+    <!-- - ["Посмотри и скажи"](examples/sequences/README.md) -->
+    - [Функция Капрекара](examples/sequences/README.md)
 - Вероятностные:
     - [Оценить число π](examples/estimate_pi/README.md)
     - [Парадокс Монти Холла](examples/monty_hall_paradox/README.md)
@@ -16,7 +18,7 @@
 
 ### Часть 1
 
-0) Рекурсивные алгоритмы
+0) [Фракталы](practice/practice_1.0.md)
 1) [Поиск подстрок в строке](practice/practice_1.1.md)
 2) [Сортировки](practice/practice_1.2.md)
 3) Красно-черные деревья
