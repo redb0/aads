@@ -7,7 +7,7 @@
 - Последовательности:
     - [Числа Фибоначчи](examples/sequences/README.md)
     - [Числа Люка](examples/sequences/README.md)
-    <!-- - Последовательность Голомба (Сильвермана) -->
+    - [Последовательность Голомба (Сильвермана)](examples/sequences/README.md)
 - Вероятностные:
     - [Оценить число π](examples/estimate_pi/README.md)
     - [Парадокс Монти Холла](examples/monty_hall_paradox/README.md)

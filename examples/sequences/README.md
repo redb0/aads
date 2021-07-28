@@ -26,6 +26,12 @@ Wiki: https://en.wikipedia.org/wiki/Lucas_number
 
 Реализация размещена в модуле ```lucas_number.py```.
 
-<!-- ## Последовательность Голомба (Сильвермана)
+## Последовательность Голомба (Сильвермана)
 
-Wiki: https://en.wikipedia.org/wiki/Golomb_sequence -->
+Wiki: https://en.wikipedia.org/wiki/Golomb_sequence
+OEIS: http://oeis.org/A001462
+ProjectEuler: https://projecteuler.net/problem=341
+
+Первые несколько элементов последовательности Голомба:
+
+```1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, ...```
