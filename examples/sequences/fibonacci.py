@@ -14,36 +14,38 @@ from typing import Generator
 GOLDEN_RATIO = (1 + 5**0.5) / 2
 
 
-def fibonacci_recurrent(n: int) -> Generator[int, None, None]:
+def fibonacci_recurrent(number: int) -> Generator[int, None, None]:
     """Числа Фибоначчи
 
-    Числа вычисляются через рекуррентную формулу.
+    Числа вычисляются через рекуррентную формулу,
+    используя подход динамического программирования.
 
-    :param n: первые n чисел Фибоначчи
-    :type n: int
+    :param number: первые number чисел Фибоначчи
+    :type number: int
     :yield: очередное число Фибоначчи
     :rtype: Generator[int, None, None]
     """
     # рекуррентная формула
-    b = [0, 1]
-    for i in range(n - 2):
+    last = [0, 1]
+    for i in range(number - 2):
         if i in (0, 1):
-            yield b[i]
-        b = [b[-1], sum(b)]
-        yield b[-1]
+            yield last[i]
+        last = [last[-1], sum(last)]
+        yield last[-1]
 
 
-def fibonacci_binet(n: int) -> Generator[int, None, None]:
+def fibonacci_binet(number: int) -> Generator[int, None, None]:
     """Числа Фибоначчи
 
-    Числа вычисляются по формуле Бине, используя золотое сечение.
+    Числа вычисляются по формуле Бине (замкнутая форма),
+    используя золотое сечение.
 
-    :param n: первые n чисел Фибоначчи
-    :type n: int
+    :param number: первые number чисел Фибоначчи
+    :type number: int
     :yield: очередное число Фибоначчи
     :rtype: Generator[int, None, None]
     """
-    for i in range(n):
+    for i in range(number):
         yield int((GOLDEN_RATIO**i - (-GOLDEN_RATIO)**(-i)) / (2*GOLDEN_RATIO - 1))
 
 
