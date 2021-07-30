@@ -13,17 +13,17 @@
     - ["Посмотри и скажи"](examples/sequences/README.md)
     - [Функция Капрекара](examples/sequences/README.md)
     <!-- - [Решето Эратосфена](examples/sequences/README.md) -->
-    <!-- - [Числа харшад (Нивена)](examples/sequences/README.md) -->
+    - [Числа харшад (Нивена)](examples/sequences/README.md)
     - [Гипотеза Коллатца](examples/sequences/README.md)
 - Вероятностные:
     - [Оценить число π](examples/estimate_pi/README.md)
     - [Парадокс Монти Холла](examples/monty_hall_paradox/README.md)
 - Фракталы
     - [Кривая дракона](examples/fractals/README.md)
-<!-- - Криптография
-    - [Шифр Виженера](examples/cryptography/README.md) -->
+- Криптография
+    - [Шифр Виженера](examples/cryptography/README.md)
 - Динамическое программирование
-    - [Простые примеры](examples\dynamic_programming\README.md) - длина
+    - [Простые примеры](examples/dynamic_programming/README.md) - длина
     и максимальный элемент последовательности
 
 ## Практические работы
