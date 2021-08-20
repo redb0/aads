@@ -13,6 +13,7 @@
     - ["Посмотри и скажи"](examples/sequences/README.md)
     - [Функция Капрекара](examples/sequences/README.md)
     <!-- - [Решето Эратосфена](examples/sequences/README.md) -->
+    <!-- - [Тест Ферма](examples/sequences/README.md) -->
     - [Числа харшад (Нивена)](examples/sequences/README.md)
     - [Гипотеза Коллатца](examples/sequences/README.md)
 - Вероятностные:
@@ -30,11 +31,11 @@
 
 ### Часть 1
 
-0) [Фракталы](practice/practice_1.0.md)
-1) [Массивы и бинарный поиск](practice/practice_1.1.md)
-2) [Связные списки](practice/practice_1.2.md)
-3) [Поиск подстрок в строке](practice/practice_1.3.md)
-4) [Сортировки](practice/practice_1.4.md)
+0) [Фракталы](practice/practice_1.0)
+1) [Массивы и бинарный поиск](practice/practice_1.1)
+2) [Связные списки](practice/practice_1.2)
+3) [Поиск подстрок в строке](practice/practice_1.3)
+4) [Сортировки](practice/practice_1.4)
 5) Внешние сортировки
 <!-- 6) Хеш-таблицы -->
 
