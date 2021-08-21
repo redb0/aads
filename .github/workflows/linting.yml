@@ -1,0 +1,22 @@
+name: linting
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+
+jobs:
+  linting:
+    name: PyLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - run: pip3 install -U pylint
+      - run: echo "Linting examples"
+      - run: pylint --rcfile=.pylintrc examples/
+      - run: echo "Linting practice"
+      - run: pylint --rcfile=.pylintrc practice/
+
