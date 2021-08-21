@@ -1,3 +1,9 @@
+"""Проверка гипотезы Коллатца
+
+Wiki:
+    https://en.wikipedia.org/wiki/Collatz_conjecture
+"""
+
 from typing import List
 
 
@@ -27,6 +33,7 @@ def collatz(number: int) -> List[int]:
 
 
 def main():
+    """Демонстрация работы"""
     for i in range(1, 20):
         print(f'{i:<2} - {collatz(i)}')
 

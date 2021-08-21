@@ -45,14 +45,16 @@ MAX_TEST_DATA = [
 
 
 class TestMyLen(unittest.TestCase):
-    def test_my_len(self):
+    """Тест-кейс функции my_len"""
+    def test_my_len(self):  # pylint: disable=C0116
         for data, expected in LEN_TEST_DATA:
             with self.subTest():
                 self.assertEqual(my_len(data), expected)
 
 
 class TestMyMax(unittest.TestCase):
-    def test_my_max(self):
+    """Тест-кейс функции my_max"""
+    def test_my_max(self):  # pylint: disable=C0116
         for data, expected in MAX_TEST_DATA:
             with self.subTest():
                 self.assertEqual(my_max(data), expected)

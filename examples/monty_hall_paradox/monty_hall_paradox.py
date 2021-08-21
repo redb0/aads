@@ -1,8 +1,17 @@
+"""Monty hall paradox
+
+Wiki:
+    https://en.wikipedia.org/wiki/Monty_Hall_problem
+"""
+
 import random
 from typing import Tuple
 
 
-def estimate_probability(n: int, num_goat: int =2) -> Tuple[float, float]:
+CAR, GOAT = 'car', 'goat'
+
+
+def estimate_probability(number: int, num_goat: int =2) -> Tuple[float, float]:
     """Monty hall paradox
 
     Wiki:
@@ -10,8 +19,8 @@ def estimate_probability(n: int, num_goat: int =2) -> Tuple[float, float]:
 
     Parameters
     ----------
-    :param n: number of repetitions of the experiment, n >= 1
-    :type n: int
+    :param number: number of repetitions of the experiment, n >= 1
+    :type number: int
     :param num_goat: number of doors with goats, num_goat >= 1
     :type num_goat: int
 
@@ -21,12 +30,13 @@ def estimate_probability(n: int, num_goat: int =2) -> Tuple[float, float]:
         The first element is the probability without changing the choice.
         The second element is probability with choice change.
     """
-    CAR, GOAT = 'car', 'goat'
-    DOORS = [CAR] + [GOAT] * num_goat
+
+    DOORS = [CAR] + [GOAT] * num_goat  # pylint: disable=C0103
+
     p_with_change = 0
     p_without_change = 0
 
-    for _ in range(n):
+    for _ in range(number):
         doors = DOORS[:]
         random.shuffle(doors)
         player_choice = random.choice(doors)
@@ -35,11 +45,12 @@ def estimate_probability(n: int, num_goat: int =2) -> Tuple[float, float]:
         while len(doors) > 1:
             doors.remove(GOAT)
         p_with_change += (doors[0] == CAR)
-    
-    return p_without_change / n, p_with_change / n
+
+    return p_without_change / number, p_with_change / number
 
 
 def main():
+    """Демонстрация работы"""
     num_goat = 2
     for i in range(10_000, 110_000, 10_000):
         p_1, p_2 = estimate_probability(i, num_goat)

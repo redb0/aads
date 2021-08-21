@@ -1,7 +1,7 @@
 """Тесты для модуля dragon_curve.py"""
 
 import unittest
-from dragon_curve import dragon_curve
+from dragon_curve import dragon_curve  # pylint: disable=E0401
 
 TEST_DRAGON_CURVE = [
     # Первая итерация
@@ -14,8 +14,8 @@ TEST_DRAGON_CURVE = [
 
 
 class TestDragonCurve(unittest.TestCase):
-
-    def test_dragon_curve(self):
+    """Тест-кейс функции dragon_curve"""
+    def test_dragon_curve(self):  # pylint: disable=C0116
         for data, expected in TEST_DRAGON_CURVE:
             with self.subTest():
                 self.assertEqual(dragon_curve(data), expected)

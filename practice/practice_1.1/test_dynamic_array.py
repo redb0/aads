@@ -2,7 +2,7 @@
 
 import unittest
 
-import dynamic_array
+import dynamic_array  # pylint: disable=E0401
 
 
 TEST_LEN = [

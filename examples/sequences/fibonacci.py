@@ -50,6 +50,7 @@ def fibonacci_binet(number: int) -> Generator[int, None, None]:
 
 
 def main():
+    """Демонстрация работы"""
     recurrent = map(str, fibonacci_recurrent(10))
     binet = map(str, fibonacci_binet(10))
     print(f'Recurrent formula: {" ".join(recurrent)}')

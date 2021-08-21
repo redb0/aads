@@ -1,13 +1,19 @@
+"""Функция Капрекара
+
+Wiki:
+    https://en.wikipedia.org/wiki/Kaprekar%27s_routine
+"""
+
 from typing import Tuple, Union, Generator
 
 
-def kaprekar_function(n: int) -> Tuple[int, int]:
+def kaprekar_function(number: int) -> Tuple[int, int]:
     """Функция Капрекара.
-    Совершает действие: вычислить разницу между числом, 
-    состоящим из цифр исходного числа, стоящих по убыванию, 
-    и числом, состоящим из цифр исходного числа, стоящих 
-    по возрастанию. 
-    Шаги прекращаются когда число совпадает 
+    Совершает действие: вычислить разницу между числом,
+    состоящим из цифр исходного числа, стоящих по убыванию,
+    и числом, состоящим из цифр исходного числа, стоящих
+    по возрастанию.
+    Шаги прекращаются когда число совпадает
     с постоянной Капрекара.
     Подробнее см.: https://en.wikipedia.org/wiki/Kaprekar%27s_routine
 
@@ -15,21 +21,21 @@ def kaprekar_function(n: int) -> Tuple[int, int]:
     (495, 5)
     >>> kaprekar_function(3412)
     (6174, 3)
-    
-    :param n: исходное число
-    :type n: int
-    :return: пару чисел (x, y), где x - константа к которой 
+
+    :param number: исходное число
+    :type number: int
+    :return: пару чисел (x, y), где x - константа к которой
              сходится исходное число, y - число шагов.
     :rtype: Tuple[int, int]
     """
     count = 0
     old_n = 0
-    while n != old_n and n > 0:
-        old_n = n
-        digits = list(str(n))
-        n1 = int(''.join(sorted(digits, reverse=True)))
-        n2 = int(''.join(sorted(digits)))
-        n = n1 - n2
+    while number != old_n and number > 0:
+        old_n = number
+        digits = list(str(number))
+        increasing_numbers = int(''.join(sorted(digits, reverse=True)))
+        decreasing_numbers = int(''.join(sorted(digits)))
+        number = increasing_numbers - decreasing_numbers
         count += 1
     return old_n, count - 1 if count > 1 else count
 
@@ -43,17 +49,17 @@ def gkaprekar(start: int, stop: Union[int]=None, /) -> Generator[Tuple[int, Tupl
     >>> list(gkaprekar(10, 15))
     [(10, (0, 1)), (11, (0, 1)), (12, (0, 1)), (13, (0, 5)), (14, (0, 3))]
 
-    :param start: Когда функция вызывается с одним параметрам 
-                  этот аргумент означает правую границу 
-                  интервала [0, start). В случае вызова функции 
-                  с двумя аргументами, он характеризует левую 
+    :param start: Когда функция вызывается с одним параметрам
+                  этот аргумент означает правую границу
+                  интервала [0, start). В случае вызова функции
+                  с двумя аргументами, он характеризует левую
                   границу [start, stop).
     :type start: int
-    :param stop: В случае вызова функции с двумя аргументами, stop 
+    :param stop: В случае вызова функции с двумя аргументами, stop
                  характеризует правую границу [start, stop).
     :type stop: int
 
-    :return: Пары вида (i, K(i)), где i - проверяемое число, 
+    :return: Пары вида (i, K(i)), где i - проверяемое число,
              K(i) - значение функции Капрекара (см. kaprekar_function).
     :rtype: Generator[Tuple[int, Tuple[int, int]], None, None]
     """
@@ -64,6 +70,7 @@ def gkaprekar(start: int, stop: Union[int]=None, /) -> Generator[Tuple[int, Tupl
 
 
 def main():
+    """Демонстрация работы"""
     for j, item in gkaprekar(10, 15):
         print(j, item)
 

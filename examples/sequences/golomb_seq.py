@@ -1,7 +1,13 @@
+"""Последовательность Голомба
+
+Wiki:
+    https://en.wikipedia.org/wiki/Golomb_sequence
+"""
+
 from typing import List
 
 
-def golomb_seq(n: int=1) -> int:
+def golomb_seq(number: int=1) -> int:
     """Последовательность Голомба
 
     Вычисления проводятся по рекурсивной формуле.
@@ -9,17 +15,17 @@ def golomb_seq(n: int=1) -> int:
     Wiki:
         https://en.wikipedia.org/wiki/Golomb_sequence
 
-    :param n: номер числа, defaults to 1
-    :type n: int, optional
+    :param number: номер числа, defaults to 1
+    :type number: int, optional
     :return: n-е число из последовательности Голомба
     :rtype: int
     """
-    if n == 1:
+    if number == 1:
         return 1
-    return 1 + golomb_seq(n - golomb_seq(golomb_seq(n - 1)))
+    return 1 + golomb_seq(number - golomb_seq(golomb_seq(number - 1)))
 
 
-def golomb_lst(n: int=1) -> List[int]:
+def golomb_lst(number: int=1) -> List[int]:
     """Последовательность Голомба
 
     Вычисления проводятся по рекурсивной формуле на основе списка.
@@ -27,15 +33,15 @@ def golomb_lst(n: int=1) -> List[int]:
     Wiki:
         https://en.wikipedia.org/wiki/Golomb_sequence
 
-    :param n: количество чисел, defaults to 1
-    :type n: int, optional
+    :param number: количество чисел, defaults to 1
+    :type number: int, optional
     :return: n первых чисел последовательности Голомба
     :rtype: List[int]
     """
-    g = [1]
-    for i in range(1, n):
-        g.append(1 + g[i - g[g[i - 1] - 1]])
-    return g
+    sequence = [1]
+    for i in range(1, number):
+        sequence.append(1 + sequence[i - sequence[sequence[i - 1] - 1]])
+    return sequence
 
 
 def silverman_seq(*args, **kwargs):
@@ -47,23 +53,24 @@ def silverman_seq(*args, **kwargs):
     return golomb_lst(*args, **kwargs)
 
 
-def golomb_cl(n: int=1) -> List[int]:
+def golomb_cl(number: int=1) -> List[int]:
     """Кластера последовательности Голомба
 
-    :param n: количество кластеров, defaults to 1
-    :type n: int, optional
+    :param number: количество кластеров, defaults to 1
+    :type number: int, optional
     :return: n первых кластеров последовательности Голомба
     :rtype: List[int]
     """
-    g = [1, 2, 2]
-    if 1 <= n <= 2:
-        return g[:n + 1]
-    for i in range(3, n + 1):
-        g += [i] * g[i-1]
-    return g
+    sequence = [1, 2, 2]
+    if 1 <= number <= 2:
+        return sequence[:number + 1]
+    for i in range(3, number + 1):
+        sequence += [i] * sequence[i-1]
+    return sequence
 
 
 def main():
+    """Демонстрация работы"""
     recursive = map(str, [golomb_seq(i) for i in range(1, 11)])
     from_list = map(str, golomb_lst(10))
     clusters = map(str, golomb_cl(3))

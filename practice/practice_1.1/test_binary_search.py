@@ -2,7 +2,7 @@
 
 import unittest
 
-import binary_search
+import binary_search  # pylint: disable=E0401
 
 
 TEST_DATA = [
