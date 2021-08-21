@@ -13,7 +13,7 @@
     - вставка элемента в нужную позицию (`insert`);
     - удаление первого вхождения элемента в массив (`remove`);
     - удаление первого вхождения элемента в массив с возвратом (`pop`);
-    - инвертирование массива (`reverse`);
+    - инвертирование массива (`__reversed__` для поддержки функции `reversed`);
     - определение длины массива (поддержка функции `len`);
     - определение количества памяти, занимаемой массивом (`sys.getsizeof`, `__sizeof__`);
 - возможность итерирования по массиву;
@@ -36,8 +36,13 @@ Python. Это можно выполнить с помощью Cython - спец
 обладающей приближенным к Python синтаксисом. Документацию по Cython
 см. в полезных материалах. Также можно сразу реализовать этот модуль на
 языке Си и подключить его к Python с помощью Cython. В Python модуле
-необходимо реализовать класс `array`, которы будет служить оберткой над
+необходимо реализовать класс `Array`, которы будет служить оберткой над
 вашим модулем на Си или Cython.
+
+Метод инициализации класса `Array` должен принимать два аргумента:
+- код типа в виде строки, `'d'` для чисел с плавающей точкой и `'i'`
+для целых чисел;
+- набор инициализирующих данных, которые сразу будут занесены в массив.
 
 Интерфейс методов и функций должен быть аналогичен методам модуля
 `array` стандартной библиотеки Python.
@@ -45,6 +50,15 @@ Python. Это можно выполнить с помощью Cython - спец
 Модуль `binary_search`, содержащий реализацию бинарного поиска
 разрешается реализовать на Python. Этот модуль должен поддерживать
 работу с объектами из `dynamic_array`.
+
+```python
+search(array: Iterable, item: Any=False) -> Optional[int]:
+```
+
+В файлах `dynamic_array.py` и `binary_search.py` размещены упрощенные
+шаблоны классов и функций. В Файлах `test_dynamic_array.py` и
+`test_binary_search.py` размещены тесты для проверки решения. Тесты
+можно запустить с помощью модуля `unittest` или `pylint`.
 
 ## Входные и выходные данные
 
@@ -80,4 +94,5 @@ Python. Это можно выполнить с помощью Cython - спец
 - [Memory Allocation in Cython](https://cython.readthedocs.io/en/latest/src/tutorial/memory_allocation.html)
 - [Использование Cython для ускорения вычислений в Python](http://www.machinelearning.ru/wiki/images/5/52/Cython_Nikolaev.pdf)
 - [Cython. A Guide for Python Programmers](http://www.jyguagua.com/wp-content/uploads/2017/03/OReilly.Cython-A-Guide-for-Python-Programmers.pdf)
+- [Python `__reverse__` magic method](https://stackoverflow.com/questions/27638960/python-reverse-magic-method)
 <!-- - [How to implement dynamic array in Python](https://www.educative.io/edpresso/how-to-implement-dynamic-array-in-python) -->
