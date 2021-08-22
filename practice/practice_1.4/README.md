@@ -13,7 +13,7 @@
 
 Пример:
 
-![Шейкерная сортировка, shaker sort](../image/shaker_sort.gif)
+![Шейкерная сортировка, shaker sort](../../image/shaker_sort.gif)
 
 ## Алгоритмы:
 
@@ -30,7 +30,7 @@
 
 ```python
 my_sort(array: list, reverse: bool=False,
-		key: Optional[Callable]=None, cmp: Optional[Callable]=None) -> list:
+		key: Optional[Callable]=None, cmp: Optional[Callable]=None) -> list
 ```
 
 Описание аргументов:
@@ -44,6 +44,9 @@ my_sort(array: list, reverse: bool=False,
 		   		 Должна принимать один аргумент и возвращать значение.
 - ```cmp```    : функция сравнения, должна принимать два аргумента и возвращать значение
 
+В файле `my_sort.py` размещен упрощенный шаблон функций, которые могут
+понадобиться. В Файле `test_my_sort.py` размещены тесты для проверки
+решения. Тесты можно запустить с помощью модуля `unittest` или `pylint`.
 
 ## Входные и выходные данные
 
