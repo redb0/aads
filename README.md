@@ -13,7 +13,7 @@
     - ["Посмотри и скажи"](examples/sequences/README.md)
     - [Функция Капрекара](examples/sequences/README.md)
     <!-- - [Решето Эратосфена](examples/sequences/README.md) -->
-    <!-- - [Тест Ферма](examples/sequences/README.md) -->
+    - [Тест Ферма](examples/prime_numbers/ferma)
     - [Числа харшад (Нивена)](examples/sequences/README.md)
     - [Гипотеза Коллатца](examples/sequences/README.md)
 - Вероятностные:
