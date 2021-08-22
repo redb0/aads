@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v2
       - run: pip3 install -U pylint
       - run: echo "Linting examples"
-      - run: pylint --rcfile=.pylintrc examples/ --ignore-patterns=*.pyx
+      - run: pylint --rcfile=.pylintrc examples/
       - run: echo "Linting practice"
-      - run: pylint --rcfile=.pylintrc practice/ --ignore-patterns=*.pyx
+      - run: pylint --rcfile=.pylintrc practice/
 
