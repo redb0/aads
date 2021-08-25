@@ -12,6 +12,7 @@
 - Совершенный алгоритм. Графовые алгоритмы и структуры данных. Т. Рафгарден
 - Совершенный алгоритм. Жадные алгоритмы. Т. Рафгарден
 - Совершенный алгоритм. Алгоритмы для NP-трудных задач. Т. Рафгарден
+- Алгоритмы и структуры данных. Н. Вирт 
 
 ## Блоги, статьи, сайты
 
@@ -22,8 +23,53 @@
 > вопроса. В курсе немного затрагивается тема алгоритмов, например,
 > вычислительная сложность.
 
+- [Методы программирования, алгоритмы](http://info.fenster.name/)
+> Краткий курс по алгоритмам и языку Си. Больше не обновляется
+
 - [Probabilistic Data Structures for Web Analytics and Data Mining](https://highlyscalable.wordpress.com/2012/05/01/probabilistic-structures-web-analytics-data-mining/)
 
+- [Data Structures and Algorithms](https://discuss.codechef.com/t/data-structures-and-algorithms/6599)
+> Внушительный сборник ссылок на статьи по алгоритмам и структурам
+> данных с примерами на разных языках программирования. К сборнику много
+> комментариев, где также встречаются полезные ссылки.
+
+- [visualgo](https://visualgo.net/en)
+> Сервис визуализации алгоритмов и структур данных. Визуализация
+> соотноситься с пошаговым выполнением кода.
+
+- [Graph Online](https://graphonline.ru/)
+> Сервис работы с графами (направленные, ненаправленные, взвешенные и
+> нет), возможность запустить разные алгоритмы на графах.
+
+- [PathFinding](https://qiao.github.io/PathFinding.js/visual/)
+> Сервис визуализации алгоритмов поиска пути. Позволяет настраивать
+> алгоритмы, рисовать препятствия.
+
+- [Pathfinding Visualizer](https://clementmihailescu.github.io/Pathfinding-Visualizer/#)
+> Еще один сервис интерактивной визуализации алгоритмов поиска пути.
+
+- [setosa](https://setosa.io/#/)
+> Сервис интерактивных визуализаций с объяснениями тех или иных вещей.
+
+- [Maze Classification](http://www.astrolog.org/labyrnth/algrithm.htm)
+> Обширный справочник по лабиринтам. Классификация с примерами,
+> алгоритмы генерации и решения все это вы надета тут.
+
+- [Алгоритм Эллера для генерации лабиринтов](https://habr.com/ru/post/176671/)
+> Перевод статьи
+> [Eller's Algorithm](http://www.neocomputer.org/projects/eller.html) с
+> подробным разбором алгоритма Эйлера.
+
+- [Классические алгоритмы генерации лабиринтов. Часть 1: вступление](https://habr.com/ru/post/320140/)
+> Статья про алгоритмы генерации лабиринтов с пошаговыми примерами и
+> реализацией на Lua.
+
+- [Классические алгоритмы генерации лабиринтов. Часть 2: погружение в случайность](https://habr.com/ru/post/321210/)
+> Описание алгоритмов генерации случайных лабиринтов с пошаговой
+> визуализацией и реализацией на Lua.
+
+- [Алгоритм поиска пути Jump Point Search](https://habr.com/ru/post/162915/)
+> Разбор Jump Point Search - одного из алгоритмов поиска пути.
 
 ## Репозитории
 
@@ -31,6 +77,21 @@
 > Репозиторий содержит широкий спектр реализаций алгоритмов и структур
 > данных на JavaScript. Каждый алгоритм имеет описание на нескольких
 > языках, в наличии русский язык.
+
+- [PathFinding.js](https://github.com/qiao/PathFinding.js)
+> Библиотека алгоритмов поиска пути в графах.
+> См. [визуализацию](https://qiao.github.io/PathFinding.js/visual/).
+
+- [Pathfinding Visualizer](https://github.com/clementmihailescu/Pathfinding-Visualizer)
+> Исходники сервиса Pathfinding Visualizer.
+> См. [визуализацию](https://clementmihailescu.github.io/Pathfinding-Visualizer/#).
+
+- [Pathfinding Visualizer Tutorial](https://github.com/clementmihailescu/Pathfinding-Visualizer-Tutorial)
+> Туториал по Pathfinding Visualizer.
+
+- [Простой генератор лабиринтов и поиск пути на openFrameworks](https://github.com/lpestl/Maze)
+> Генератор лабиринтов и поиск пути на C++ openFrameworks c с хорошим
+> описанием.
 
 ## Плейлисты
 
