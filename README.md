@@ -5,26 +5,27 @@
 ## Алгоритмы
 
 - Последовательности:
-    - [Числа Фибоначчи](examples/sequences/README.md) -
+    - [Числа Фибоначчи](examples/sequences) -
     решение с помощью динамического программирования, решение по формуле Бине
-    - [Числа Люка](examples/sequences/README.md) -
+    - [Числа Люка](examples/sequences) -
     решение с помощью динамического программирования, решение в замкнутой форме
-    - [Последовательность Голомба (Сильвермана)](examples/sequences/README.md)
-    - ["Посмотри и скажи"](examples/sequences/README.md)
-    - [Функция Капрекара](examples/sequences/README.md)
-    <!-- - [Решето Эратосфена](examples/sequences/README.md) -->
+    - [Последовательность Голомба (Сильвермана)](examples/sequences)
+    - ["Посмотри и скажи"](examples/sequences)
+    - [Функция Капрекара](examples/sequences)
+    <!-- - [Решето Эратосфена](examples/sequences) -->
     - [Тест Ферма](examples/prime_numbers/ferma)
-    - [Числа харшад (Нивена)](examples/sequences/README.md)
-    - [Гипотеза Коллатца](examples/sequences/README.md)
+    - [Числа харшад (Нивена)](examples/sequences)
+    - [Гипотеза Коллатца](examples/sequences)
 - Вероятностные:
-    - [Оценить число π](examples/estimate_pi/README.md)
-    - [Парадокс Монти Холла](examples/monty_hall_paradox/README.md)
+    - [Оценить число π](examples/estimate_pi)
+    - [Парадокс Монти Холла](examples/monty_hall_paradox)
 - Фракталы
-    - [Кривая дракона](examples/fractals/README.md)
+    - [Кривая дракона](examples/fractals)
+    - [Фрактальное растение](examples/fractals)
 - Криптография
-    - [Шифр Виженера](examples/cryptography/README.md)
+    - [Шифр Виженера](examples/cryptography)
 - Динамическое программирование
-    - [Простые примеры](examples/dynamic_programming/README.md) - длина
+    - [Простые примеры](examples/dynamic_programming) - длина
     и максимальный элемент последовательности
 
 ## Практические работы
