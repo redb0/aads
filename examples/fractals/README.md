@@ -17,3 +17,13 @@ Wiki: https://en.wikipedia.org/wiki/L-system
 Пример кривой дракона с раскраской:
 
 ![кривая дракона](../../image/dragon_curve.png)
+
+## Фрактальное растение
+
+С помощью L-систем легко описать формы подобные фракталам, например, как это растение.
+
+Wiki: https://en.wikipedia.org/wiki/L-system#Example_7:_Fractal_plant
+
+Пример растения для степени рекурсии 6:
+
+![фрактальное растение](../../image/fractal_plant.png)
