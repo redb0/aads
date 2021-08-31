@@ -28,6 +28,9 @@
 
 - [Probabilistic Data Structures for Web Analytics and Data Mining](https://highlyscalable.wordpress.com/2012/05/01/probabilistic-structures-web-analytics-data-mining/)
 
+- [Seeing Theory](https://seeing-theory.brown.edu/)
+> Интерактивная визуализация принципов теории вероятностей.
+
 - [Data Structures and Algorithms](https://discuss.codechef.com/t/data-structures-and-algorithms/6599)
 > Внушительный сборник ссылок на статьи по алгоритмам и структурам
 > данных с примерами на разных языках программирования. К сборнику много
