@@ -20,8 +20,8 @@
     - [Оценить число π](examples/estimate_pi)
     - [Парадокс Монти Холла](examples/monty_hall_paradox)
 - Фракталы
-    - [Кривая дракона](examples/fractals)
-    - [Фрактальное растение](examples/fractals)
+    - [Кривая дракона](examples/fractals/dragon_curve)
+    - [Фрактальное растение](examples/fractals/fractal_plant)
 - Криптография
     - [Шифр Виженера](examples/cryptography)
 - Динамическое программирование
