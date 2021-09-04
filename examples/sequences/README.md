@@ -28,8 +28,8 @@ Wiki: https://en.wikipedia.org/wiki/Lucas_number
 
 ## Последовательность Голомба (Сильвермана)
 
-Wiki: https://en.wikipedia.org/wiki/Golomb_sequence
-OEIS: http://oeis.org/A001462
+Wiki: https://en.wikipedia.org/wiki/Golomb_sequence<br>
+OEIS: http://oeis.org/A001462<br>
 ProjectEuler: https://projecteuler.net/problem=341
 
 Первые несколько элементов последовательности Голомба:
@@ -38,8 +38,8 @@ ProjectEuler: https://projecteuler.net/problem=341
 
 ## Последовательность "Посмотри и скажи"
 
-Wiki: https://en.wikipedia.org/wiki/Look-and-say_sequence
-OEIS: https://oeis.org/A005150
+Wiki: https://en.wikipedia.org/wiki/Look-and-say_sequence<br>
+OEIS: https://oeis.org/A005150<br>
 ProjectEuler: http://euler.jakumo.org/problems.html
 
 Первые несколько элементов последовательности "Посмотри и скажи":
@@ -69,7 +69,7 @@ Wiki: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 
 ```10, 12, 18, 20, 21, 24, 27, 30, 36, 40, 42, 45, 48, 50, 54, 60, ...```
 
-Wiki: https://en.wikipedia.org/wiki/Harshad_number
+Wiki: https://en.wikipedia.org/wiki/Harshad_number<br>
 OEIS: https://oeis.org/A005349
 
 ### Нивенморфные числа
@@ -120,5 +120,36 @@ OEIS: https://oeis.org/A005349
 
 ```19, 58, 29, 88, 44, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1, ...```
 
-Wiki: https://en.wikipedia.org/wiki/Collatz_conjecture
+Wiki: https://en.wikipedia.org/wiki/Collatz_conjecture<br>
 OEIS: https://oeis.org/A014682
+
+## Числа вампиры
+
+Число-вампир — составное натуральное число с чётным количеством цифр,
+которое может быть разложено в произведение двух некоторых целых
+(также называемых «клыками»), удовлетворяющих специальным правилам:
+- каждое из них должно состоять из количества цифр, вдвое меньшего,
+чем у исходного числа;
+- если в одном из них последняя цифра ноль, то другое оканчиваться
+нулём не может;
+- исходное число должно в любом порядке содержать все цифры, входящие
+в «клыки», то есть для любой цифры числа вхождений в исходное число и в
+клыки должны быть равными. 
+
+Пример такого числа:
+
+```
+6880 = 86 * 80
+```
+
+Первые несколько чисел вампиров:
+
+```
+1260, 1395, 1435, 1530, 1827, 2187, 6880, 102510, 104260, 105210, ...
+```
+
+Смотрите реализацию алгоритмов поиска таких чисел в модуле
+```vampire_number.py.py```.
+
+Wiki: https://en.wikipedia.org/wiki/Vampire_number<br>
+OEIS: https://oeis.org/A014575

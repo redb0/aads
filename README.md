@@ -16,6 +16,7 @@
     - [Тест Ферма](examples/prime_numbers/ferma)
     - [Числа харшад (Нивена)](examples/sequences)
     - [Гипотеза Коллатца](examples/sequences)
+    - [Числа вампиры](examples/sequences)
 - Вероятностные:
     - [Оценить число π](examples/estimate_pi)
     - [Парадокс Монти Холла](examples/monty_hall_paradox)
