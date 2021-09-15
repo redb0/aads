@@ -77,6 +77,7 @@ TEST_REVERSED = [
 
 class TestArray(unittest.TestCase):
     """Тест-кейс модуля dynamic_array"""
+
     def test_len(self):
         """Тест метода len"""
         for typecode, data, expected in TEST_LEN:
@@ -94,7 +95,7 @@ class TestArray(unittest.TestCase):
 
     def test_insert(self):
         """Тест метода insert"""
-        for typecode, data, item, index, expected in TEST_INSERT:
+        for typecode, data, index, item, expected in TEST_INSERT:
             with self.subTest():
                 my_array = dynamic_array.Array(typecode, data)
                 my_array.insert(index, item)
@@ -122,4 +123,4 @@ class TestArray(unittest.TestCase):
         for typecode, data, expected in TEST_REVERSED:
             with self.subTest():
                 my_array = dynamic_array.Array(typecode, data)
-                self.assertEqual(reversed(my_array), expected)
+                self.assertEqual(list(reversed(my_array)), expected)
