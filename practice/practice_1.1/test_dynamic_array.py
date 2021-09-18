@@ -115,14 +115,15 @@ class TestArray(unittest.TestCase):
     def test_len(self):
         """Тест метода len"""
         for typecode, data, expected in TEST_LEN:
-            with self.subTest():
+            with self.subTest(typecode=typecode, data=data, expected=expected):
                 test_array = dynamic_array.Array(typecode, data)
                 self.assertEqual(len(test_array), expected)
 
     def test_append(self):
         """Тест метода append"""
         for typecode, data, item, expected in TEST_APPEND:
-            with self.subTest():
+            with self.subTest(typecode=typecode, data=data,
+                              item=item, expected=expected):
                 test_array = dynamic_array.Array(typecode, data)
                 test_array.append(item)
                 self.assertEqual(len(test_array), len(expected))
@@ -137,7 +138,8 @@ class TestArray(unittest.TestCase):
     def test_insert(self):
         """Тест метода insert"""
         for typecode, data, index, item, expected in TEST_INSERT:
-            with self.subTest():
+            with self.subTest(typecode=typecode, data=data, index=index,
+                              item=item, expected=expected):
                 test_array = dynamic_array.Array(typecode, data)
                 test_array.insert(index, item)
                 self.assertEqual(len(test_array), len(expected))
@@ -152,7 +154,8 @@ class TestArray(unittest.TestCase):
     def test_remove(self):
         """Тест метода remove"""
         for typecode, data, item, expected in TEST_REMOVE:
-            with self.subTest():
+            with self.subTest(typecode=typecode, data=data,
+                              item=item, expected=expected):
                 test_array = dynamic_array.Array(typecode, data)
                 test_array.remove(item)
                 self.assertEqual(len(test_array), len(expected))
@@ -167,7 +170,9 @@ class TestArray(unittest.TestCase):
     def test_pop(self):
         """Тест метода pop"""
         for typecode, data, index, expected_item, expected_array in TEST_POP:
-            with self.subTest():
+            with self.subTest(typecode=typecode, data=data, index=index,
+                              expected_item=expected_item,
+                              expected_array=expected_array):
                 test_array = dynamic_array.Array(typecode, data)
                 item = test_array.pop(index)
                 self.assertEqual(item, expected_item)
@@ -183,7 +188,7 @@ class TestArray(unittest.TestCase):
     def test_pop_failed(self):
         """Тест метода pop с исключением IndexError"""
         for typecode, data, index in TEST_POP_INDEX_ERROR:
-            with self.subTest():
+            with self.subTest(typecode=typecode, data=data, index=index):
                 test_array = dynamic_array.Array(typecode, data)
                 with self.assertRaises(IndexError):
                     test_array.pop(index)
@@ -191,7 +196,7 @@ class TestArray(unittest.TestCase):
     def test_reversed(self):
         """Тест метода reversed"""
         for typecode, data, expected in TEST_REVERSED:
-            with self.subTest():
+            with self.subTest(typecode=typecode, data=data, expected=expected):
                 test_array = dynamic_array.Array(typecode, data)
                 reversed_array = list(reversed(test_array))
                 for i, expected_item in enumerate(expected):
@@ -205,6 +210,6 @@ class TestArray(unittest.TestCase):
     def test_eq(self):
         """Тест сравнения с array.array"""
         for typecode, data, expected in TEST_EQ:
-            with self.subTest():
+            with self.subTest(typecode=typecode, data=data, expected=expected):
                 my_array = dynamic_array.Array(typecode, data)
                 self.assertEqual(my_array, expected)
