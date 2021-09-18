@@ -1,32 +1,50 @@
-"""Шаблон реализации массива"""
+"""Модуль "заглушка" для тестов"""
+
+
+from array import array
 
 
 class Array:
     """Массив"""
     def __init__(self, typecode, initializer):
-        pass
+        self.typecode = typecode
+        self.my_array = initializer
 
-    def append(self, item):  # pylint: disable=R0201
+    def append(self, item):
         """Добавление элемента"""
-        raise NotADirectoryError()
+        if self.typecode == 'd':
+            self.my_array.append(float(item))
+        else:
+            self.my_array.append(int(item))
 
-    def insert(self, index, item):  # pylint: disable=R0201
+    def insert(self, index, item):
         """Операция вставки"""
-        raise NotADirectoryError()
+        if self.typecode == 'd':
+            self.my_array.insert(index, float(item))
+        else:
+            self.my_array.insert(index, int(item))
 
-    def remove(self, item):  # pylint: disable=R0201
+    def remove(self, item):
         """Операция удаления"""
-        raise NotADirectoryError()
+        self.my_array.remove(item)
 
-    def pop(self, index):  # pylint: disable=R0201
+    def pop(self, index):
         """Операция удаления с возвратом"""
-        raise NotADirectoryError()
+        return self.my_array.pop(index)
+
+    def __getitem__(self, index):
+        return self.my_array[index]
 
     def __reversed__(self):
-        raise NotADirectoryError()
+        return self.__class__(self.typecode, list(reversed(self.my_array)))
 
     def __len__(self):
-        raise NotADirectoryError()
+        return len(self.my_array)
 
     def __sizeof__(self):
-        raise NotADirectoryError()
+        return self.my_array.__sizeof__()
+
+    def __eq__(self, o: object):
+        if isinstance(o, array):
+            return o.typecode == self.typecode and list(o) == self.my_array
+        return False
