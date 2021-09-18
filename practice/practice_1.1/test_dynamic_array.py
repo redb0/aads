@@ -3,7 +3,7 @@
 import unittest
 import array
 
-import dynamic_array
+import dynamic_array  # pylint: disable=E0401
 
 
 TEST_LEN = [
@@ -17,6 +17,12 @@ TEST_LEN = [
     ('i', [1, 1], 2),
     ('i', [1, 2], 2),
     ('i', [1, 9999, 3, 4, 1], 5),
+]
+
+
+TEST_GETITEM = [
+    ('d', [2.0, 3.0, 4.0], 3),
+    ('i', [5, 1, -1], 3),
 ]
 
 
@@ -118,6 +124,42 @@ class TestArray(unittest.TestCase):
             with self.subTest(typecode=typecode, data=data, expected=expected):
                 test_array = dynamic_array.Array(typecode, data)
                 self.assertEqual(len(test_array), expected)
+
+    def test_getitem(self):
+        """Тест индексации"""
+        for typecode, data, array_len in TEST_GETITEM:
+            test_array = dynamic_array.Array(typecode, data)
+            for index in range(array_len):
+                with self.subTest(typecode=typecode, data=data, index=index):
+                    item = test_array.__getitem__(index)
+                    self.assertEqual(item, data[index])
+
+    def test_getitem_failed(self):
+        """Тест исключения IndexError при индексации"""
+        for typecode, data, array_len in TEST_GETITEM:
+            test_array = dynamic_array.Array(typecode, data)
+            for index in [array_len, -(array_len + 1)]:
+                with self.subTest(typecode=typecode, data=data, index=index):
+                    with self.assertRaises(IndexError):
+                        test_array.__getitem__(index)
+
+    def test_setitem(self):
+        """Тест __setitem__"""
+        for typecode, data, array_len in TEST_GETITEM:
+            test_array = dynamic_array.Array(typecode, data)
+            for index in range(array_len):
+                with self.subTest(typecode=typecode, data=data, index=index):
+                    test_array.__setitem__(index, -42)
+                    self.assertEqual(test_array[index], -42)
+
+    def test_setitem_failed(self):
+        """Тест исключения IndexError для __setitem__"""
+        for typecode, data, array_len in TEST_GETITEM:
+            test_array = dynamic_array.Array(typecode, data)
+            for index in [array_len, -(array_len + 1)]:
+                with self.subTest(typecode=typecode, data=data, index=index):
+                    with self.assertRaises(IndexError):
+                        test_array.__setitem__(index, 42)
 
     def test_append(self):
         """Тест метода append"""

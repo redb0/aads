@@ -35,6 +35,9 @@ class Array:
     def __getitem__(self, index):
         return self.my_array[index]
 
+    def __setitem__(self, index, value):
+        self.my_array[index] = value
+
     def __reversed__(self):
         return self.__class__(self.typecode, list(reversed(self.my_array)))
 
