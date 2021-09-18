@@ -1,7 +1,7 @@
 """Тесты для модуля simple_example.py"""
 
 import unittest
-from .simple_example import my_len, my_max
+from .simple_example import my_len, my_max  # pylint: disable=E0401
 
 
 LEN_TEST_DATA = [
