@@ -27,7 +27,7 @@
 - `append(self, item)` - алиас для `append_right`;
 - `remove(self, item)` - удаление элемента, при его отсутствии в списке
 должно возбуждать исключение `ValueError`;
-- `insert(self, previous, item)` - добавление элемента `item` после
+- `insert(self, previous, item)` - вставка элемента `item` после
 элемента `previous`.
 
 Добавьте поддержку "магических" методов в классе `LinkedList`:
@@ -37,6 +37,10 @@
 - `__getitem__` - получение элемента по индексу;
 - `__contains__` - поддержка оператора `in`;
 - `__reversed__` - поддержка функции `reversed`.
+
+Элементы связного списка реализуйте в виде класса `LinkedListItem`,
+который будет содержать ссылки на следующий и предыдущий элементы, а
+также данные в виде экземпляра `Composition`.
 
 Предусмотрите следующие методы в классе `PlayList`:
 - `play_all(self, item)` - начать проигрывать все треки, начиная с `item`;
@@ -52,6 +56,10 @@
 Подсказка:
 > Проигрывание музыкальных композиций можно реализовать с помощью
 > `pygame`.
+
+> Примерная диаграмма классов
+
+![Диаграмма классов](../../image/class_diagram.png)
 
 <!-- ## Входные и выходные данные -->
 
@@ -77,3 +85,4 @@
 - [Data Structures In The Real World — Linked List](https://medium.com/journey-of-one-thousand-apps/data-structures-in-the-real-world-508f5968545a)
 - [How is Python's List Implemented?](https://stackoverflow.com/questions/3917574/how-is-pythons-list-implemented)
 - [Playing mp3 song on python](https://stackoverflow.com/questions/20021457/playing-mp3-song-on-python)
+- [Диаграмма классов](https://en.wikipedia.org/wiki/Class_diagram)
