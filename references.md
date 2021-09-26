@@ -12,9 +12,13 @@
 - Совершенный алгоритм. Графовые алгоритмы и структуры данных. Т. Рафгарден
 - Совершенный алгоритм. Жадные алгоритмы. Т. Рафгарден
 - Совершенный алгоритм. Алгоритмы для NP-трудных задач. Т. Рафгарден
-- Алгоритмы и структуры данных. Н. Вирт 
+- Алгоритмы и структуры данных. Н. Вирт
+- [Problem Solving with Algorithms and Data Structures](https://runestone.academy/runestone/books/published/pythonds/index.html#problem-solving-with-algorithms-and-data-structures-using-python)
+- [Problem Solving with Algorithms and Data Structures (Рус)](http://aliev.me/runestone/)
 
 ## Блоги, статьи, сайты
+
+- [Blog Guido van Rossum](https://www.blogger.com/profile/12821714508588242516)
 
 - [Программирование на языке высокого уровня (Python)](https://www.yuripetrov.ru/edu/python/index.html)
 > Туториал по программированию на Python. Рассматриваются разные темы:
@@ -75,6 +79,8 @@
 > Разбор Jump Point Search - одного из алгоритмов поиска пути.
 
 ## Репозитории
+
+- [Guido van Rossum](https://github.com/gvanrossum)
 
 - [JavaScript Algorithms and Data Structures](https://github.com/trekhleb/javascript-algorithms)
 > Репозиторий содержит широкий спектр реализаций алгоритмов и структур
