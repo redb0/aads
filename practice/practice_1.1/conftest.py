@@ -1,6 +1,7 @@
 """Локальный плагин для pytest"""
 
 
+import math
 import timeit
 import pytest
 
@@ -19,7 +20,7 @@ def pytest_collection_modifyitems(items):
             reference_time = timeit.timeit(
                 APPEND_CODE, setup=SETUP_CODE, number=10_000
             )
-            print(f'\nЭталонное время: {reference_time = }')
-            reference_time = round(reference_time * 1.125)
-            print(f'Время с поправкой: {reference_time = }')
+            print(f'\n\033[33mЭталонное время: {reference_time} сек.\033[0m')
+            reference_time = math.ceil(reference_time * 2.5)
+            print(f'\033[33mВремя с поправкой: {reference_time} сек.\033[0m')
             item.add_marker(pytest.mark.timeout(reference_time))

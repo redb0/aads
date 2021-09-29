@@ -2,6 +2,7 @@
 
 import unittest
 import array
+import time
 
 import dynamic_array  # pylint: disable=E0401
 
@@ -258,6 +259,9 @@ class TestArray(unittest.TestCase):
 
     def test_timeout_append(self):  # pylint: disable=R0201
         """Тест времени выполнения метода append"""
-        my_array = dynamic_array.Array('i', [])
-        for i in range(10_000):
-            my_array.append(i)
+        start = time.time()
+        for _ in range(10_000):
+            my_array = dynamic_array.Array('i', [])
+            for i in range(10_000):
+                my_array.append(i)
+        print(f'\n\033[33mВремя вашего append: {time.time() - start} сек.\033[0m')
