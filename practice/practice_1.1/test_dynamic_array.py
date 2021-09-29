@@ -255,3 +255,9 @@ class TestArray(unittest.TestCase):
             with self.subTest(typecode=typecode, data=data, expected=expected):
                 my_array = dynamic_array.Array(typecode, data)
                 self.assertEqual(my_array, expected)
+
+    def test_timeout_append(self):  # pylint: disable=R0201
+        """Тест времени выполнения метода append"""
+        my_array = dynamic_array.Array('i', [])
+        for i in range(10_000):
+            my_array.append(i)
