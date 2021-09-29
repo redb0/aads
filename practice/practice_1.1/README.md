@@ -85,6 +85,24 @@ python setup.py build_ext --inplace
 модуль, его можно использовать как обычный модуль Python. Для удобства
 его можно переименовать в `my_array.pyd`.
 
+Для прохождения тестов вам понадобиться `pytest` и плагин
+`pytest-timeout`. Установить их можно командами:
+
+```bash
+python -m pip install pytest
+python -m pip install pytest-timeout
+```
+
+Также нужен файл `conftest.py` расположите его рядом с тестами.
+Подробнее об этом файле можно узнать в
+[документации](https://docs.pytest.org/en/latest/example/markers.html).
+
+Запустить тесты можно командой:
+
+```bash
+pytest test_dynamic_array.py
+```
+
 ## Входные и выходные данные
 
 Пример входных данных для бинарного поиска:
