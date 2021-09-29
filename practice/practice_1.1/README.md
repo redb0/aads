@@ -100,7 +100,7 @@ python -m pip install pytest-timeout
 Запустить тесты можно командой:
 
 ```bash
-pytest test_dynamic_array.py
+pytest test_dynamic_array.py -s
 ```
 
 ## Входные и выходные данные
