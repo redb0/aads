@@ -16,6 +16,7 @@ jobs:
       - uses: actions/setup-python@v2
       - run: pip3 install -U pylint
       - run: pip3 install -U cython
+      - run: pip3 install -U pytest
       - run: echo "Linting examples"
       - run: pylint --rcfile=.pylintrc examples/
       - run: echo "Linting practice"
