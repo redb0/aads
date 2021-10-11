@@ -64,6 +64,7 @@ def create_linked_list(nodes_list):
     linked_list = LinkedList()
     for i in nodes_list:
         linked_list.append(i)
+    next(linked_list)
     return linked_list
 
 
@@ -164,7 +165,6 @@ class TestLinkedList(unittest.TestCase):
         for expected_len in TEST_LAST:
             first = None
             previous = None
-            last = None
             for i in range(expected_len):
                 node = LinkedListItem(i)
                 if previous:
@@ -172,8 +172,6 @@ class TestLinkedList(unittest.TestCase):
                 previous = node
                 if i == 0:
                     first = node
-                if i == expected_len - 1:
-                    last = node
             if previous and first:
                 previous.next_item = first
             linked_list = LinkedList(first)
@@ -185,8 +183,8 @@ class TestLinkedList(unittest.TestCase):
                     self.assertTrue(first_item.next_item is first_item)
                 else:
                     self.assertTrue(first_item is not first)
-                    self.assertTrue(last.next_item is first_item)
-                    self.assertTrue(first_item.previous_item is last)
+                    self.assertTrue(first.next_item is first_item)
+                    self.assertTrue(first_item.previous_item is first)
                 self.assertEqual(len(linked_list), expected_len + 1)
 
     def test_append(self):
@@ -194,7 +192,6 @@ class TestLinkedList(unittest.TestCase):
         for expected_len in TEST_LAST:
             first = None
             previous = None
-            last = None
             for i in range(expected_len):
                 node = LinkedListItem(i)
                 if previous:
@@ -202,8 +199,6 @@ class TestLinkedList(unittest.TestCase):
                 previous = node
                 if i == 0:
                     first = node
-                if i == expected_len - 1:
-                    last = node
             if previous and first:
                 previous.next_item = first
             linked_list = LinkedList(first)
@@ -215,8 +210,8 @@ class TestLinkedList(unittest.TestCase):
                     self.assertTrue(first_item.next_item is first_item)
                 else:
                     self.assertTrue(first_item is not first)
-                    self.assertTrue(last.next_item is first_item)
-                    self.assertTrue(first_item.previous_item is last)
+                    self.assertTrue(first.next_item is first_item)
+                    self.assertTrue(first_item.previous_item is first)
                 self.assertEqual(len(linked_list), expected_len + 1)
 
     def test_remove(self):
@@ -252,7 +247,7 @@ class TestLinkedList(unittest.TestCase):
             linked_list = create_linked_list(node_list)
             with self.subTest(node_list=node_list, index=index):
                 item = linked_list[index]
-                self.assertEqual(item.data, node_list[index])
+                self.assertEqual(item, node_list[index])
 
     def test_getitem_failed(self):
         """Тест индексации с исключением IndexError"""
