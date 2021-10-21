@@ -32,5 +32,6 @@ class TestBinarySearch(unittest.TestCase):
     def test_binary_search(self):
         """Тест функции search"""
         for iterable_obj, item, expected in TEST_DATA:
+            print((iterable_obj, item, expected))
             with self.subTest():
                 self.assertEqual(binary_search.search(iterable_obj, item), expected)
