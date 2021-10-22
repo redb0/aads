@@ -183,18 +183,13 @@ class TestLinkedList(unittest.TestCase):
             linked_list = LinkedList(first)
             with self.subTest(expected_len=expected_len):
                 linked_list.append_right(42)
-                if linked_list.first_item is first:
-                    # Если голова не смещается при append
-                    appended_item = first.next_item
-                else:
-                    # Если голова смещается при append
-                    appended_item = linked_list.first_item
+                appended_item = linked_list.last
                 if expected_len == 0:
                     self.assertTrue(appended_item.data == 42)
                     self.assertTrue(appended_item.next_item is appended_item)
                 else:
-                    self.assertTrue(first.next_item is appended_item)
-                    self.assertTrue(appended_item.previous_item is first)
+                    self.assertTrue(first.previous_item is appended_item)
+                    self.assertTrue(appended_item.next_item is first)
                 self.assertEqual(len(linked_list), expected_len + 1)
 
     def test_append(self):
@@ -214,18 +209,13 @@ class TestLinkedList(unittest.TestCase):
             linked_list = LinkedList(first)
             with self.subTest(expected_len=expected_len):
                 linked_list.append(42)
-                if linked_list.first_item is first:
-                    # Если голова не смещается при append
-                    appended_item = first.next_item
-                else:
-                    # Если голова смещается при append
-                    appended_item = linked_list.first_item
+                appended_item = linked_list.last
                 if expected_len == 0:
                     self.assertTrue(appended_item.data == 42)
                     self.assertTrue(appended_item.next_item is appended_item)
                 else:
-                    self.assertTrue(first.next_item is appended_item)
-                    self.assertTrue(appended_item.previous_item is first)
+                    self.assertTrue(first.previous_item is appended_item)
+                    self.assertTrue(appended_item.next_item is first)
                 self.assertEqual(len(linked_list), expected_len + 1)
 
     def test_remove(self):
