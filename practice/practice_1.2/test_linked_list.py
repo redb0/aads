@@ -50,7 +50,7 @@ TEST_GETITEM_FAILED = [
     ([1, 2, 4], -4),
 ]
 
-TEST_INSERT =[
+TEST_INSERT = [
     # (create_linked_list([]), 0, 42),
     ([1], 0, 42),
     # (create_linked_list([2]), 1, 42),
@@ -61,11 +61,17 @@ TEST_INSERT =[
 
 def create_linked_list(nodes_list):
     """Создание связного списка"""
-    linked_list = LinkedList()
-    for i in nodes_list:
-        linked_list.append(i)
-    next(linked_list)
-    return linked_list
+    first = previous = None
+    for item in nodes_list:
+        node = LinkedListItem(item)
+        if previous:
+            previous.next_item = node
+        elif not first:
+            first = node
+        previous = node
+    if previous:
+        previous.next_item = first
+    return LinkedList(first)
 
 
 class TestLinkedListItem(unittest.TestCase):
@@ -177,14 +183,13 @@ class TestLinkedList(unittest.TestCase):
             linked_list = LinkedList(first)
             with self.subTest(expected_len=expected_len):
                 linked_list.append_right(42)
-                first_item = linked_list.first_item  # pylint: disable=E1101
+                appended_item = linked_list.last
                 if expected_len == 0:
-                    self.assertTrue(first_item.data == 42)
-                    self.assertTrue(first_item.next_item is first_item)
+                    self.assertTrue(appended_item.data == 42)
+                    self.assertTrue(appended_item.next_item is appended_item)
                 else:
-                    self.assertTrue(first_item is not first)
-                    self.assertTrue(first.next_item is first_item)
-                    self.assertTrue(first_item.previous_item is first)
+                    self.assertTrue(first.previous_item is appended_item)
+                    self.assertTrue(appended_item.next_item is first)
                 self.assertEqual(len(linked_list), expected_len + 1)
 
     def test_append(self):
@@ -204,14 +209,13 @@ class TestLinkedList(unittest.TestCase):
             linked_list = LinkedList(first)
             with self.subTest(expected_len=expected_len):
                 linked_list.append(42)
-                first_item = linked_list.first_item  # pylint: disable=E1101
+                appended_item = linked_list.last
                 if expected_len == 0:
-                    self.assertTrue(first_item.data == 42)
-                    self.assertTrue(first_item.next_item is first_item)
+                    self.assertTrue(appended_item.data == 42)
+                    self.assertTrue(appended_item.next_item is appended_item)
                 else:
-                    self.assertTrue(first_item is not first)
-                    self.assertTrue(first.next_item is first_item)
-                    self.assertTrue(first_item.previous_item is first)
+                    self.assertTrue(first.previous_item is appended_item)
+                    self.assertTrue(appended_item.next_item is first)
                 self.assertEqual(len(linked_list), expected_len + 1)
 
     def test_remove(self):
