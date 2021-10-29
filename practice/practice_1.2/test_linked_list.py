@@ -50,7 +50,7 @@ TEST_GETITEM_FAILED = [
     ([1, 2, 4], -4),
 ]
 
-TEST_INSERT =[
+TEST_INSERT = [
     # (create_linked_list([]), 0, 42),
     ([1], 0, 42),
     # (create_linked_list([2]), 1, 42),
@@ -61,10 +61,17 @@ TEST_INSERT =[
 
 def create_linked_list(nodes_list):
     """Создание связного списка"""
-    linked_list = LinkedList()
-    for i in nodes_list:
-        linked_list.append(LinkedListItem(i))
-    return linked_list
+    first = previous = None
+    for item in nodes_list:
+        node = LinkedListItem(item)
+        if previous:
+            previous.next_item = node
+        elif not first:
+            first = node
+        previous = node
+    if previous:
+        previous.next_item = first
+    return LinkedList(first)
 
 
 class TestLinkedListItem(unittest.TestCase):
@@ -148,15 +155,15 @@ class TestLinkedList(unittest.TestCase):
                 previous.next_item = first
             linked_list = LinkedList(first)
             with self.subTest(expected_len=expected_len):
-                new_item = LinkedListItem(42)
-                linked_list.append_left(new_item)
+                last_first = linked_list.first_item
+                linked_list.append_left(42)
                 first_item = linked_list.first_item  # pylint: disable=E1101
-                self.assertTrue(first_item is new_item)
+                self.assertTrue(first_item is not last_first)
                 if expected_len == 0:
-                    self.assertTrue(first_item.next_item is new_item)
+                    self.assertTrue(first_item.next_item is first_item)
                 else:
-                    self.assertTrue(first.previous_item is new_item)
-                    self.assertTrue(new_item.next_item is first)
+                    self.assertTrue(first.previous_item is first_item)
+                    self.assertTrue(first_item.next_item is first)
                 self.assertEqual(len(linked_list), expected_len + 1)
 
     def test_append_right(self):
@@ -164,7 +171,6 @@ class TestLinkedList(unittest.TestCase):
         for expected_len in TEST_LAST:
             first = None
             previous = None
-            last = None
             for i in range(expected_len):
                 node = LinkedListItem(i)
                 if previous:
@@ -172,21 +178,18 @@ class TestLinkedList(unittest.TestCase):
                 previous = node
                 if i == 0:
                     first = node
-                if i == expected_len - 1:
-                    last = node
             if previous and first:
                 previous.next_item = first
             linked_list = LinkedList(first)
             with self.subTest(expected_len=expected_len):
-                new_item = LinkedListItem(42)
-                linked_list.append_right(new_item)
+                linked_list.append_right(42)
+                appended_item = linked_list.last
                 if expected_len == 0:
-                    first_item = linked_list.first_item  # pylint: disable=E1101
-                    self.assertTrue(first_item is new_item)
-                    self.assertTrue(first_item.next_item is new_item)
+                    self.assertTrue(appended_item.data == 42)
+                    self.assertTrue(appended_item.next_item is appended_item)
                 else:
-                    self.assertTrue(last.next_item is new_item)
-                    self.assertTrue(new_item.previous_item is last)
+                    self.assertTrue(first.previous_item is appended_item)
+                    self.assertTrue(appended_item.next_item is first)
                 self.assertEqual(len(linked_list), expected_len + 1)
 
     def test_append(self):
@@ -194,7 +197,6 @@ class TestLinkedList(unittest.TestCase):
         for expected_len in TEST_LAST:
             first = None
             previous = None
-            last = None
             for i in range(expected_len):
                 node = LinkedListItem(i)
                 if previous:
@@ -202,42 +204,35 @@ class TestLinkedList(unittest.TestCase):
                 previous = node
                 if i == 0:
                     first = node
-                if i == expected_len - 1:
-                    last = node
             if previous and first:
                 previous.next_item = first
             linked_list = LinkedList(first)
             with self.subTest(expected_len=expected_len):
-                new_item = LinkedListItem(42)
-                linked_list.append(new_item)
+                linked_list.append(42)
+                appended_item = linked_list.last
                 if expected_len == 0:
-                    first_item = linked_list.first_item  # pylint: disable=E1101
-                    self.assertTrue(first_item is new_item)
-                    self.assertTrue(first_item.next_item is new_item)
+                    self.assertTrue(appended_item.data == 42)
+                    self.assertTrue(appended_item.next_item is appended_item)
                 else:
-                    self.assertTrue(last.next_item is new_item)
-                    self.assertTrue(new_item.previous_item is last)
+                    self.assertTrue(first.previous_item is appended_item)
+                    self.assertTrue(appended_item.next_item is first)
                 self.assertEqual(len(linked_list), expected_len + 1)
 
     def test_remove(self):
         """Тест метода remove"""
         for node_list, remove_item in TEST_REMOVE:
-            linked_list = LinkedList()
-            for i in node_list:
-                linked_list.append(LinkedListItem(i))
+            linked_list = create_linked_list(node_list)
             with self.subTest(node_list=node_list, remove_item=remove_item):
-                linked_list.remove(LinkedListItem(remove_item))
+                linked_list.remove(remove_item)
                 self.assertEqual(len(linked_list), len(node_list) - 1)
 
     def test_remove_failed(self):
         """Тест метода remove с исключением ValueError"""
         for node_list, remove_item in TEST_REMOVE_FAILED:
-            linked_list = LinkedList()
-            for i in node_list:
-                linked_list.append(LinkedListItem(i))
+            linked_list = create_linked_list(node_list)
             with self.subTest(node_list=node_list, remove_item=remove_item):
                 with self.assertRaises(ValueError):
-                    linked_list.remove(LinkedListItem(remove_item))
+                    linked_list.remove(remove_item)
 
     def test_insert(self):
         """Тест метода insert"""
@@ -245,7 +240,7 @@ class TestLinkedList(unittest.TestCase):
             linked_list = create_linked_list(node_list)
             with self.subTest(node_list=node_list, index=index,
                               data=data):
-                linked_list.insert(linked_list[index], LinkedListItem(data))
+                linked_list.insert(linked_list[index], data)
                 self.assertEqual(len(linked_list), len(node_list) + 1)
                 node_list.insert(index + 1, data)
                 self.assertEqual([i.data for i in linked_list], node_list)
@@ -253,19 +248,15 @@ class TestLinkedList(unittest.TestCase):
     def test_getitem(self):
         """Тест индексации"""
         for node_list, index in TEST_GETITEM:
-            linked_list = LinkedList()
-            for i in node_list:
-                linked_list.append(LinkedListItem(i))
+            linked_list = create_linked_list(node_list)
             with self.subTest(node_list=node_list, index=index):
                 item = linked_list[index]
-                self.assertEqual(item.data, node_list[index])
+                self.assertEqual(item, node_list[index])
 
     def test_getitem_failed(self):
         """Тест индексации с исключением IndexError"""
         for node_list, index in TEST_GETITEM_FAILED:
-            linked_list = LinkedList()
-            for i in node_list:
-                linked_list.append(LinkedListItem(i))
+            linked_list = create_linked_list(node_list)
             with self.subTest(node_list=node_list, index=index):
                 with self.assertRaises(IndexError):
                     _ = linked_list[index]
@@ -273,9 +264,7 @@ class TestLinkedList(unittest.TestCase):
     def test_contains(self):
         """Тест поддержки оператора in"""
         for node_list, item, expected in TEST_CONTAINS:
-            linked_list = LinkedList()
-            for i in node_list:
-                linked_list.append(LinkedListItem(i))
+            linked_list = create_linked_list(node_list)
             with self.subTest(node_list=node_list, item=item, expected=expected):
                 self.assertTrue((item in linked_list) is expected)
 
