@@ -140,4 +140,5 @@ pytest test_dynamic_array.py -s
 - [Использование Cython для ускорения вычислений в Python](http://www.machinelearning.ru/wiki/images/5/52/Cython_Nikolaev.pdf)
 - [Cython. A Guide for Python Programmers](http://www.jyguagua.com/wp-content/uploads/2017/03/OReilly.Cython-A-Guide-for-Python-Programmers.pdf)
 - [Python `__reverse__` magic method](https://stackoverflow.com/questions/27638960/python-reverse-magic-method)
+- [Binary Search in Java](https://stackabuse.com/binary-search-in-java/)
 <!-- - [How to implement dynamic array in Python](https://www.educative.io/edpresso/how-to-implement-dynamic-array-in-python) -->
