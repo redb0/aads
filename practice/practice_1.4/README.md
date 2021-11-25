@@ -77,11 +77,16 @@ my_sort(array: list, reverse: bool=False,
 4) На оценку 5 балла:
     - реализовать все методы, указанные в описании к работе. 
 
-<!-- 
+
 ## Полезные материалы
 
 - [Плавная сортировка (smooth sort)](http://cppalgo.blogspot.com/2010/10/smoothsort.html)
 - [Интроспективная сортировка](https://web.archive.org/web/20110825150145/http://ralphunden.net/?q=a-guide-to-introsort)
 - [Динамический самообновляемый график на Python](https://ru.stackoverflow.com/questions/789210/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9-%D1%81%D0%B0%D0%BC%D0%BE%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%D1%8B%D0%B9-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA-%D0%BD%D0%B0-python)
 - [Sorting Algorithms Animations](https://www.toptal.com/developers/sorting-algorithms)
--->
+- [Имплементация сортировки в JVM в Java](http://hg.openjdk.java.net/jdk7/jdk7/jdk/file/tip/src/share/classes/java/util/Arrays.java)
+- [Merge Sort in Java](https://stackabuse.com/merge-sort-in-java/)
+- [Heap Sort in Java](https://stackabuse.com/heap-sort-in-java/)
+- [Quicksort in Java](https://stackabuse.com/quicksort-in-java/)
+- [Selection Sort in Java](https://stackabuse.com/selection-sort-in-java/)
+- [Merge Sort in Java](https://stackabuse.com/merge-sort-in-java/)
