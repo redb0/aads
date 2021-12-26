@@ -4,10 +4,9 @@
 
 Предусмотреть:
 1. Интерфейс командной строки (CLI)
-2. Сортировку дынных в форматах `csv`, `json`, `txt`.
-3. Для форматов `csv` и `json` необходимо указывать ключ сортировки,
-например, атрибут словарей в json или номер/наименование столбца в
-`csv`.
+2. Сортировку дынных в форматах `csv`, `txt`.
+3. Для форматa `csv` необходимо указывать ключ сортировки,
+например, номер/наименование столбца в `csv`.
 4. Сортировку по невозрастанию/неубыванию
 5. Сохранение результата в новый файл (без изменения исходных)
 6. Сортировку нескольких файлов одного формата
@@ -23,7 +22,6 @@
 3) N-путевое слияние
 4) Многофазная сортировка (Фибоначчиевая)
 5) Каскадное слияние
-6) Многопоточная реализация слияния (EXTRA)
 
 ##  Требования к реализации
 
@@ -56,7 +54,7 @@ my_sort(src: PathType, output: Optional[PathType]=None, reverse: bool=False,
 ## Входные и выходные данные
 
 Функция сортировки должна принимать абсолютный или относительный путь
-до исходного файла в формате `csv`, `json` или `txt`.
+до исходного файла в формате `csv` или `txt`.
 
 Результатом работы функции сортировки должен стать либо новый файл,
 либо тот же файл с отсортированными записями.
@@ -78,10 +76,10 @@ my_sort(src: PathType, output: Optional[PathType]=None, reverse: bool=False,
     - все вышеперечисленное;
     - пункты 4 и 5;
 4) На оценку 5 балла:
-    - реализовать все требования, указанные в описании к работе, кроме 8.
+    - реализовать все требования, указанные в описании к работе, кроме 7 и 8.
 5) Плюс в карму:
     - все вышеперечисленное;
-    - пункт 8;
+    - пункты 7, 8;
 
 ## Полезные материалы
 
@@ -90,3 +88,5 @@ my_sort(src: PathType, output: Optional[PathType]=None, reverse: bool=False,
 - [Алгоритмы внешней сортировки. Смешанные алгоритмы](https://cpct.sibsutis.ru/~artpol/downloads/prog/2012_2013/s2/prog_s2_lect5p3_v3.pdf)
 - [What are some real-life practical uses for external file sorting, and what future applications could it potentially be used for?](https://www.quora.com/What-are-some-real-life-practical-uses-for-external-file-sorting-and-what-future-applications-could-it-potentially-be-used-for)
 - [Sorting Applications](https://algs4.cs.princeton.edu/25applications/)
+- [Каскадное слияние](https://studfile.net/preview/1854733/page:3/)
+- [Сортировка естественным слиянием](https://intuit.ru/studies/courses/648/504/lecture/11473?page=2)
