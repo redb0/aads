@@ -153,3 +153,5 @@
 - [Получаем данные Open Street Map в Python](https://nuancesprog.ru/p/6248/)
 - [How To Efficiently Display Large Amounts of Data on iOS Maps](https://thoughtbot.com/blog/how-to-handle-large-amounts-of-data-on-maps)
 - [Transform an image into a Quadtree](https://medium.com/analytics-vidhya/transform-an-image-into-a-quadtree-39b3aa6e019a)
+- [Pygame how to let balls collide](https://stackoverflow.com/questions/63145493/pygame-how-to-let-balls-collide)
+- [Collision detection](https://en.wikipedia.org/wiki/Collision_detection)
