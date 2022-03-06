@@ -67,6 +67,8 @@
 
 ![Сжатие изображения](https://upload.wikimedia.org/wikipedia/commons/d/d7/Quadtree_compression_of_an_image.gif)
 
+![Сжатие изображения](../../image/image_comp.gif)
+
 ### Поиск ближайшего объекта на карте
 
 Реализовать программу для поиска ближайшего объекта заданного типа на карте.
