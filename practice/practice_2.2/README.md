@@ -103,3 +103,6 @@
 - [Maze generation algorithm](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
 - [Maze Generation: Sidewinder algorithm](http://weblog.jamisbuck.org/2011/2/3/maze-generation-sidewinder-algorithm)
 - [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)
+- [Лабиринты: классификация, генерирование, поиск решений](https://habr.com/ru/post/445378/)
+- [OBLIGE Level Maker](http://oblige.sourceforge.net/)
+- [Bake Your Own 3D Dungeons With Procedural Recipes](https://gamedevelopment.tutsplus.com/tutorials/bake-your-own-3d-dungeons-with-procedural-recipes--gamedev-14360)
