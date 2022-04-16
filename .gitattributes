@@ -4,7 +4,7 @@ README.md -linguist-documentation
 # * linguist-vendored
 # practice/*/*.py linguist-vendored=false
 # example/*/*.py linguist-vendored=false
-practice/**/* linguist-documentation=false
-practice/**/* linguist-vendored
-example/**/* linguist-documentation=false
-example/**/* linguist-vendored
+practice/**/*.py linguist-documentation=false
+practice/**/*.py linguist-vendored
+example/**/*.py linguist-documentation=false
+example/**/*.py linguist-vendored
