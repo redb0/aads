@@ -95,3 +95,4 @@ id;region;municipality;settlement;type;latitude_dd;longitude_dd
 - [Оптимальные маршруты для существующих датасетов](http://www.math.uwaterloo.ca/tsp/optimal/index.html)
 - [История задачи коммивояжера](http://www.math.uwaterloo.ca/tsp/us/history.html)
 - [Traveling Santa Problem, пример наивного метода](https://www.kaggle.com/javiabellan/starting-kernel-plotting-nearest-neighbor)
+- [Калькулятор для нахождения кратчайшего пути](https://math.semestr.ru/kom/index.php)
