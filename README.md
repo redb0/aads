@@ -39,11 +39,9 @@
 3) [Поиск подстрок в строке](practice/practice_1.3)
 4) [Сортировки](practice/practice_1.4)
 5) [Внешние сортировки](practice/practice_1.5)
-<!-- 6) Хеш-таблицы -->
 
 ### Часть 2
 
-Coming soon
 
 1) [Квадродеревья](practice/practice_2.1)
 2) [Лабиринты](practice/practice_2.2)
