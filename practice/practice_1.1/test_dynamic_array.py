@@ -29,6 +29,11 @@ TEST_GETITEM = [
 ]
 
 
+TEST_SETITEM_OVERFLOW_ERROR = [
+    ('i', [1, 2, 3], 0)
+]
+
+
 TEST_APPEND = [
     ('d', [], 1, array.array('d', [1.0])),
     ('d', [1.0], 1, array.array('d', [1.0, 1.0])),
@@ -38,6 +43,18 @@ TEST_APPEND = [
     ('i', [1], 1, array.array('i', [1, 1])),
     ('i', [2], 1, array.array('i', [2, 1])),
     ('i', [2, 5], 1, array.array('i', [2, 5, 1])),
+]
+
+
+TEST_APPEND_TYPE_ERROR = [
+    ('d', [1.0, 2.0, 3.0], 'qwe'),
+    ('i', [1, 2, 3], 1.5),
+    ('i', [1, 2, 3], 'qwe'),
+]
+
+
+TEST_APPEND_OVERFLOW_ERROR = [
+    ('i', [1, 2, 3], 999999999999999),
 ]
 
 
@@ -71,6 +88,12 @@ TEST_REMOVE = [
 ]
 
 
+TEST_REMOVE_VALUE_ERROR = [
+    ('d', [1.0], 2.0),
+    ('i', [1, 5], 6),
+]
+
+
 TEST_POP = [
     ('d', [1.0], 0, 1.0, array.array('d', [])),
     ('d', [2.0, 1.0, 6.0], 1, 1.0, array.array('d', [2.0, 6.0])),
@@ -82,6 +105,16 @@ TEST_POP = [
     ('i', [2, 5], 1, 5, array.array('i', [2])),
     ('i', [2, 5], -1, 5, array.array('i', [2])),
     ('i', [2, 5], -2, 2, array.array('i', [5])),
+]
+
+
+TEST_POP_WITHOUT_INDEX = [
+    ('d', [1.0], 1.0, array.array('d', [])),
+    ('d', [2.0, 1.0, 6.0], 6.0, array.array('d', [2.0, 1.0])),
+    ('d', [2.0, 5.0], 5.0, array.array('d', [2.0])),
+    ('i', [1], 1, array.array('i', [])),
+    ('i', [2, 1, 4], 4, array.array('i', [2, 1])),
+    ('i', [2, 5], 5, array.array('i', [2])),
 ]
 
 
@@ -121,6 +154,7 @@ TEST_EQ = [
 
 class TestArray(unittest.TestCase):
     """Тест-кейс модуля dynamic_array"""
+
     def test_len(self):
         """Тест метода len"""
         for typecode, data, expected in TEST_LEN:
@@ -156,13 +190,19 @@ class TestArray(unittest.TestCase):
                     self.assertEqual(test_array[index], -42)
 
     def test_setitem_failed(self):
-        """Тест исключения IndexError для __setitem__"""
+        """Тест исключений IndexError и OverflowError для __setitem__"""
         for typecode, data, array_len in TEST_GETITEM:
             test_array = dynamic_array.Array(typecode, data)
             for index in [array_len, -(array_len + 1)]:
                 with self.subTest(typecode=typecode, data=data, index=index):
                     with self.assertRaises(IndexError):
                         test_array.__setitem__(index, 42)
+
+        for typecode, data, index in TEST_SETITEM_OVERFLOW_ERROR:
+            test_array = dynamic_array.Array(typecode, data)
+            with self.subTest(typecode=typecode, data=data, index=index):
+                with self.assertRaises(OverflowError):
+                    test_array.__setitem__(index, 99999999999999999999999999)
 
     def test_append(self):
         """Тест метода append"""
@@ -179,6 +219,20 @@ class TestArray(unittest.TestCase):
                     elif typecode == 'i':
                         self.assertTrue(isinstance(array_item, int))
                     self.assertEqual(array_item, expected_item)
+
+    def test_append_failed(self):
+        """Тест метода append с исключениями TypeError и OverflowError"""
+        for typecode, data, item in TEST_APPEND_TYPE_ERROR:
+            with self.subTest(typecode=typecode, data=data, item=item):
+                test_array = dynamic_array.Array(typecode, data)
+                with self.assertRaises(TypeError):
+                    test_array.append(item)
+
+        for typecode, data, item in TEST_APPEND_OVERFLOW_ERROR:
+            with self.subTest(typecode=typecode, data=data, item=item):
+                test_array = dynamic_array.Array(typecode, data)
+                with self.assertRaises(OverflowError):
+                    test_array.append(item)
 
     def test_insert(self):
         """Тест метода insert"""
@@ -212,6 +266,14 @@ class TestArray(unittest.TestCase):
                         self.assertTrue(isinstance(array_item, int))
                     self.assertEqual(array_item, expected_item)
 
+    def test_remove_failed(self):
+        """Тест метода remove с исключением remove"""
+        for typecode, data, item in TEST_REMOVE_VALUE_ERROR:
+            with self.subTest(typecode=typecode, data=data, item=item):
+                test_array = dynamic_array.Array(typecode, data)
+                with self.assertRaises(ValueError):
+                    test_array.remove(item)
+
     def test_pop(self):
         """Тест метода pop"""
         for typecode, data, index, expected_item, expected_array in TEST_POP:
@@ -220,6 +282,22 @@ class TestArray(unittest.TestCase):
                               expected_array=expected_array):
                 test_array = dynamic_array.Array(typecode, data)
                 item = test_array.pop(index)
+                self.assertEqual(item, expected_item)
+                self.assertEqual(len(test_array), len(expected_array))
+                for i, ex_item in enumerate(expected_array):
+                    array_item = test_array[i]
+                    if typecode == 'd':
+                        self.assertTrue(isinstance(array_item, float))
+                    elif typecode == 'i':
+                        self.assertTrue(isinstance(array_item, int))
+                    self.assertEqual(array_item, ex_item)
+
+        for typecode, data, expected_item, expected_array in TEST_POP_WITHOUT_INDEX:
+            with self.subTest(typecode=typecode, data=data,
+                              expected_item=expected_item,
+                              expected_array=expected_array):
+                test_array = dynamic_array.Array(typecode, data)
+                item = test_array.pop()
                 self.assertEqual(item, expected_item)
                 self.assertEqual(len(test_array), len(expected_array))
                 for i, ex_item in enumerate(expected_array):
