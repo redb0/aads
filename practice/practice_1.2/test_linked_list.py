@@ -274,6 +274,6 @@ class TestLinkedList(unittest.TestCase):
             linked_list = create_linked_list(list(range(i)))
             with self.subTest(node_list=list(range(i))):
                 self.assertEqual(
-                    [item.data for item in reversed(linked_list)],
+                    [item for item in reversed(linked_list)],
                     list(range(i - 1, -1, -1))
                 )
